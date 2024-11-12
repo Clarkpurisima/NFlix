@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'expo-status-bar'; 
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
 
@@ -10,9 +10,11 @@ export default function App() {
       </View>
       <Text style={styles.subtitle}>Unlimited Movies & TV Shows, Anytime</Text>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Log In</Text>
-      </TouchableOpacity>
+      <Link href="/Login" style={styles.linkText}>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Log In</Text>
+        </TouchableOpacity>
+      </Link>
 
       <TouchableOpacity style={styles.buttonOutline}>
         <Text style={styles.buttonTextOutline}>Sign Up</Text>
@@ -39,7 +41,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     padding: 15,
     marginBottom: 50,
-    // Adding shadow for depth
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
     color: '#E50914',
     fontWeight: 'bold',
     letterSpacing: 1,
-    textShadowColor: '#000', // subtle shadow on the logo text
+    textShadowColor: '#000',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 5,
   },
@@ -60,8 +61,8 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     marginBottom: 50,
     textAlign: 'center',
-    fontFamily: 'Arial', // Better font for readability
-    lineHeight: 28, // More spacing for easier reading
+    fontFamily: 'Arial',
+    lineHeight: 28,
   },
   button: {
     backgroundColor: '#E50914',
@@ -70,7 +71,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 15,
     width: '80%',
-    // Adding subtle shadow for a "clickable" effect
     shadowColor: '#E50914',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
@@ -85,7 +85,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 30,
     width: '80%',
-    // Adding subtle shadow for a "clickable" effect
     shadowColor: '#E50914',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
