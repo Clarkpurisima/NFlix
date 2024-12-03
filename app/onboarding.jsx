@@ -1,113 +1,94 @@
-import { StatusBar } from 'expo-status-bar'; 
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
 import { Link } from 'expo-router';
 
-export default function App() {
+const Onboarding = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.logoContainer}>
-        <Text style={styles.logo}>Nflix</Text>
+    <ImageBackground
+      source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQGt94ludgtqDWp0bB3xQjHv3Z84RySNir2A&s' }}
+      style={styles.background}
+    >
+      <View style={styles.overlay}>
+        <Text style={styles.title}>WELCOME TO NFLIX</Text>
+        <Text style={styles.subtitle}>Your gateway to endless entertainment.</Text>
+
+        {/* Log In Button */}
+        <Link href="/Login" asChild>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Log In</Text>
+          </TouchableOpacity>
+        </Link>
+
+        {/* Sign Up Button */}
+        <Link href="/Signup" asChild>
+          <TouchableOpacity style={styles.buttonOutline}>
+            <Text style={styles.buttonTextOutline}>Sign Up</Text>
+          </TouchableOpacity>
+        </Link>
       </View>
-      <Text style={styles.subtitle}>Unlimited Movies & TV Shows, Anytime</Text>
-
-      <Link href="/Login" style={styles.linkText}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Log In</Text>
-        </TouchableOpacity>
-      </Link>
-
-      <TouchableOpacity style={styles.buttonOutline}>
-        <Text style={styles.buttonTextOutline}>Sign Up</Text>
-      </TouchableOpacity>
-
-      <Link href="/home" style={styles.linkText}>Browse Library</Link>
-
-      <StatusBar style="light" />
-    </View>
+    </ImageBackground>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
+  background: {
     flex: 1,
-    backgroundColor: '#141414', // Dark Netflix background
-    alignItems: 'center',
+    resizeMode: 'cover',
     justifyContent: 'center',
-    padding: 20,
   },
-  logoContainer: {
-    borderWidth: 3,
-    borderColor: '#E50914',
-    borderRadius: 15,
-    padding: 15,
-    marginBottom: 50,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 6,
-    elevation: 8,
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 30,
   },
-  logo: {
-    fontSize: 40,
-    color: '#E50914',
+  title: {
+    fontSize: 36,
+    color: '#FFD700',
     fontWeight: 'bold',
-    letterSpacing: 1,
-    textShadowColor: '#000',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 5,
+    marginBottom: 15,
+    textAlign: 'center',
   },
   subtitle: {
-    fontSize: 22,
-    color: '#FFFFFF',
-    marginBottom: 50,
+    fontSize: 20,
+    color: '#fff',
+    marginBottom: 30,
     textAlign: 'center',
-    fontFamily: 'Arial',
-    lineHeight: 28,
   },
   button: {
-    backgroundColor: '#E50914',
-    paddingVertical: 16,
-    paddingHorizontal: 50,
-    borderRadius: 8,
+    backgroundColor: '#FF4500',
+    paddingVertical: 12,
+    paddingHorizontal: 35,
+    borderRadius: 10,
+    width: '70%',
     marginBottom: 15,
-    width: '80%',
-    shadowColor: '#E50914',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 6,
-    elevation: 8,
   },
   buttonOutline: {
+    backgroundColor: 'transparent',
+    borderColor: '#FFD700',
     borderWidth: 2,
-    borderColor: '#E50914',
-    paddingVertical: 16,
-    paddingHorizontal: 50,
-    borderRadius: 8,
-    marginBottom: 30,
-    width: '80%',
-    shadowColor: '#E50914',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 6,
-    elevation: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 35,
+    borderRadius: 10,
+    width: '70%',
+    marginBottom: 15,
   },
   buttonText: {
-    color: '#FFFFFF',
+    color: '#fff',
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: 'bold',
     textAlign: 'center',
   },
   buttonTextOutline: {
-    color: '#E50914',
+    color: '#FFD700',
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: 'bold',
     textAlign: 'center',
   },
-  linkText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    textDecorationLine: 'underline',
-    marginTop: 10,
-    textAlign: 'center',
+  link: {
+    width: '100%',
   },
 });
+
+export default Onboarding;

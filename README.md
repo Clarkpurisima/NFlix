@@ -1,5 +1,5 @@
 # NFlix
-TechFolio Mobile App.
+NFlix Mobile App.
 
 # Features
 * Share Projects

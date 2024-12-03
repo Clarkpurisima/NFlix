@@ -1,74 +1,57 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { Link } from 'expo-router';
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Link } from 'expo-router'; // Used to navigate between pages
 
-export default function App() {
+const IndexPage = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.logoContainer}>
-        <Text style={styles.logo}>Nflix</Text>
+      <View style={styles.overlay}>
+        <Text style={styles.title}>WELCOME TO NFLIX</Text>
+        <Text style={styles.subtitle}>Unlimited movies, TV shows, and more</Text>
+        
+        <Link href="/onboarding" asChild>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Click to Join</Text>
+          </TouchableOpacity>
+        </Link>
       </View>
-      <Text style={styles.subtitle}>Unlimited Movies & TV Shows, Anytime</Text>
-
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Start Watching</Text>
-      </TouchableOpacity>
-
-      <Link href="/profile" style={styles.linkText}>Go to Profile</Link>
-      <Link href="/onboarding" style={styles.link}>Browse Library</Link>
-
-      <StatusBar style="light" />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#141414', // Dark Netflix background
-    alignItems: 'center',
+    backgroundColor: '#141414', // Dark background similar to Netflix
     justifyContent: 'center',
-    padding: 20,
-    // Background gradient for more depth
-    background: 'linear-gradient(180deg, rgba(0,0,0,0.8), rgba(0,0,0,1))',
+    alignItems: 'center',
   },
-  logoContainer: {
-    borderWidth: 3,
-    borderColor: '#E50914',
-    borderRadius: 15,
-    padding: 15,
-    marginBottom: 30,
-    // Adding shadow for depth
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 6,
-    elevation: 8,
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.7)', // Semi-transparent overlay
+    padding: 30,
+    borderRadius: 8,
+    width: '80%',
+    alignItems: 'center',
   },
-  logo: {
-    fontSize: 40,
-    color: '#E50914',
+  title: {
+    fontSize: 36,
+    color: '#fff',
     fontWeight: 'bold',
-    letterSpacing: 1,
-    textShadowColor: '#000', // subtle shadow on the logo text
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 5,
+    marginBottom: 10,
+    textAlign: 'center',
   },
   subtitle: {
-    fontSize: 22,
-    color: '#FFFFFF',
-    marginBottom: 40,
+    fontSize: 18,
+    color: '#fff',
+    marginBottom: 30,
     textAlign: 'center',
-    fontFamily: 'Arial', // Better font for readability
-    lineHeight: 28, // More spacing for easier reading
   },
   button: {
-    backgroundColor: '#E50914',
+    backgroundColor: '#E50914', // Netflix Red
     paddingVertical: 16,
     paddingHorizontal: 50,
     borderRadius: 8,
-    marginBottom: 20,
-    // Adding subtle shadow for a "clickable" effect
+    marginTop: 20,
     shadowColor: '#E50914',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
@@ -76,21 +59,11 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   buttonText: {
-    color: '#FFFFFF',
+    color: '#fff',
     fontSize: 18,
-    fontWeight: '600',
-  },
-  linkText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    textDecorationLine: 'underline',
-    marginBottom: 10,
-    textAlign: 'center',
-  },
-  link: {
-    color: '#E50914',
-    fontSize: 16,
-    textDecorationLine: 'underline',
+    fontWeight: 'bold',
     textAlign: 'center',
   },
 });
+
+export default IndexPage;
